@@ -1,2 +1,3 @@
-# my-ip-react-native
-my-ip-react-native
+# About
+
+Find for your public IP!

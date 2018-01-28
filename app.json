@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "sdkVersion": "25.0.0",
+    "name": "MYPIP",
+    "slug": "my-public-ip",
+    "description": "Find for your public IP!",
+    "privacy": "public",
+    "icon": "./assets/icon.png",
+    "loading": {
+      "icon": "./assets/icon.png"
+    },
+    "splash": {
+      "image": "./assets/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#2F2336"
+    }
+  }
+}
