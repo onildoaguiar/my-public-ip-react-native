@@ -4,6 +4,7 @@
     "name": "MYPIP",
     "slug": "my-public-ip",
     "description": "Find for your public IP!",
+    "githubUrl": "https://github.com/onildoaguiar/my-public-ip-react-native",
     "privacy": "public",
     "icon": "./assets/icon.png",
     "loading": {
