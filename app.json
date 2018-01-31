@@ -18,7 +18,11 @@
     },
     "android": {
       "package": "com.onildoaguiar.mypip",
-      "permissions" : ["INTERNET"]
+      "versionCode": 2,
+      "permissions": [
+        "INTERNET"
+      ],
+      "icon": "./assets/icon.png"
     }
   }
 }
