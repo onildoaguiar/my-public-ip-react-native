@@ -4,6 +4,7 @@
     "name": "MYPIP",
     "slug": "my-public-ip",
     "description": "Find for your public IP!",
+    "version": "1.0.1",
     "githubUrl": "https://github.com/onildoaguiar/my-public-ip-react-native",
     "privacy": "public",
     "icon": "./assets/icon.png",
@@ -14,6 +15,10 @@
       "image": "./assets/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#2F2336"
+    },
+    "android": {
+      "package": "com.onildoaguiar.mypip",
+      "permissions" : ["INTERNET"]
     }
   }
 }
