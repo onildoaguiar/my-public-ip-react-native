@@ -23,6 +23,11 @@
         "INTERNET"
       ],
       "icon": "./assets/icon.png"
+    },
+    "ios": {
+      "bundleIdentifier": "com.onildoaguiar.mypip",
+      "buildNumber": "1.0.1",
+      "icon": "./assets/icon.png"
     }
   }
 }
