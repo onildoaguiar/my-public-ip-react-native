@@ -8,12 +8,7 @@
     "githubUrl": "https://github.com/onildoaguiar/my-public-ip-react-native",
     "privacy": "public",
     "icon": "./assets/icon.png",
-    "loading": {
-      "icon": "./assets/icon.png"
-    },
     "splash": {
-      "image": "./assets/icon.png",
-      "resizeMode": "contain",
       "backgroundColor": "#2F2336"
     },
     "android": {
