@@ -1,18 +1,29 @@
-import React from 'react';
-import { Platform, StyleSheet, Text, View, Image, Button } from 'react-native';
-import { AdMobBanner } from 'expo';
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View, Image } from 'react-native';
+import { Button } from 'react-native-elements'
+import { AdMobBanner, AppLoading, Asset } from 'expo';
 
-import logo from './assets/logo.png';
-
-export default class App extends React.Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isReady: false,
       myPublicIp: '',
       adUnitID: Platform.OS === 'ios'
         ? 'ca-app-pub-7075742595048757/1237582754'
         : 'ca-app-pub-7075742595048757/7337631830',
     };
+  }
+
+  async loadAssetsAsync() {
+    const imagesAssets = [
+      require('./assets/logo.png')
+    ];
+
+    const cacheImages = imagesAssets.map((image) => {
+      return Asset.fromModule(image).downloadAsync();
+    });
+    return Promise.all(cacheImages)
   }
 
   async findMyPublicIp() {
@@ -28,6 +39,16 @@ export default class App extends React.Component {
   }
 
   render() {
+    if (!this.state.isReady) {
+      return (
+        <AppLoading
+          startAsync={this.loadAssetsAsync}
+          onFinish={() => this.setState({ isReady: true })}
+          onError={console.warn}
+        />
+      );
+    }
+
     return (
       <View style={styles.container}>
         <AdMobBanner
@@ -38,10 +59,11 @@ export default class App extends React.Component {
           didFailToReceiveAdWithError={this.bannerError}
         />
         <View style={styles.body}>
-          <Image style={styles.logo} source={logo} />
+          <Image style={styles.logo} source={require('./assets/logo.png')} />
           <Text style={styles.ip}>{this.state.myPublicIp}</Text>
           <Button
             title="Find my public IP"
+            buttonStyle={styles.button}
             onPress={this.findMyPublicIp.bind(this)}
           />
         </View>
@@ -67,6 +89,10 @@ const styles = StyleSheet.create({
   },
   admob: {
     paddingTop: 25,
+  },
+  button: {
+    backgroundColor: '#1E88E5',
+    borderRadius: 25
   },
   ip: {
     color: 'white',
